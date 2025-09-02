@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Assyrian Correction - Rebuilding Ancient Near Eastern Chronology</title>
+    <meta name="description" content="Discover how a 44-year error in Assyrian chronology cascaded through history, and how the corrected timeline harmonizes all ancient records.">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #e74c3c;
+            --gold-color: #f39c12;
+            --success-color: #27ae60;
+            --warning-color: #e67e22;
+            --error-color: #c0392b;
+            --light-bg: #ecf0f1;
+            --white: #ffffff;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --border-light: #bdc3c7;
+            --shadow: 0 4px 20px rgba(0,0,0,0.1);
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --error-gradient: linear-gradient(135deg, #ff7b7b 0%, #667eea 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--light-bg);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--error-gradient);
+            color: var(--white);
+            padding: 8rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .error-badge {
+            display: inline-block;
+            background: var(--error-color);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .error-stat {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--gold-color);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            display: block;
+            margin: 1rem 0;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            position: relative;
+            text-align: center;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: var(--accent-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .cascade-visual {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cascade-visual::before {
+            content: '⚠️';
+            font-size: 4rem;
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            opacity: 0.3;
+        }
+
+        .cascade-title {
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .cascade-text {
+            color: var(--white);
+            font-size: 1.2rem;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        /* Timeline Comparison */
+        .comparison-section {
+            padding: 6rem 0;
+            background: var(--light-bg);
+        }
+
+        .timeline-comparison {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            margin: 3rem 0;
+        }
+
+        .timeline-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            background: var(--light-bg);
+            border-radius: 50px;
+            padding: 0.5rem;
+        }
+
+        .timeline-tab {
+            flex: 1;
+            background: none;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            max-width: 200px;
+        }
+
+        .timeline-tab.active {
+            background: var(--accent-color);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .timeline-tab.conventional {
+            color: var(--error-color);
+        }
+
+        .timeline-tab.corrected {
+            color: var(--success-color);
+        }
+
+        .timeline-content {
+            display: none;
+        }
+
+        .timeline-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .timeline-visual {
+            background: var(--light-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .timeline-ruler {
+            height: 60px;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-radius: 30px;
+            position: relative;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+
+        .timeline-markers {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+        }
+
+        .timeline-marker {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--white);
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid var(--accent-color);
+        }
+
+        .timeline-marker:hover {
+            transform: scale(1.2);
+            background: var(--gold-color);
+        }
+
+        .timeline-marker.error {
+            background: var(--error-color);
+            border-color: var(--white);
+            animation: errorPulse 2s infinite;
+        }
+
+        .timeline-marker.corrected {
+            background: var(--success-color);
+            border-color: var(--white);
+        }
+
+        @keyframes errorPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .marker-label {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            white-space: nowrap;
+            background: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Solution Section */
+        .solution-section {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .solution-card {
+            background: var(--success-gradient);
+            color: var(--white);
+            border-radius: 20px;
+            padding: 0;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .solution-header {
+            padding: 2rem;
+            position: relative;
+        }
+
+        .solution-number {
+            position: absolute;
+            top: -15px;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gold-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .solution-header h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .solution-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Synchronized Chart */
+        .chart-section {
+            padding: 6rem 0;
+            background: var(--light-bg);
+        }
+
+        .chart-container {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            overflow-x: auto;
+        }
+
+        .chart-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 0.95rem;
+            min-width: 800px;
+        }
+
+        .chart-table th {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 1rem;
+            text-align: left;
+            font-weight: bold;
+            border: none;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .chart-table th:first-child {
+            border-top-left-radius: 15px;
+        }
+
+        .chart-table th:last-child {
+            border-top-right-radius: 15px;
+        }
+
+        .chart-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-light);
+            vertical-align: top;
+            transition: all 0.3s ease;
+        }
+
+        .chart-table tr:hover td {
+            background: var(--light-bg);
+            transform: scale(1.01);
+        }
+
+        .chart-table tr.anchor-row td {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+            font-weight: bold;
+            color: var(--success-color);
+        }
+
+        .chart-table tr.gap-row td {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            font-weight: bold;
+            color: var(--error-color);
+            text-align: center;
+            font-style: italic;
+        }
+
+        .chart-table tr.final-anchor td {
+            background: var(--gradient);
+            color: var(--white);
+            font-weight: bold;
+        }
+
+        /* Interactive Features */
+        .interactive-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .control-button {
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3);
+        }
+
+        .control-button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(44, 62, 80, 0.4);
+        }
+
+        .control-button.active {
+            background: var(--accent-color);
+        }
+
+        /* Navigation */
+        .page-navigation {
+            background: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3);
+        }
+
+        .nav-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(44, 62, 80, 0.4);
+            background: var(--secondary-color);
+        }
+
+        .nav-button.primary {
+            background: var(--accent-color);
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .nav-button.primary:hover {
+            background: #c0392b;
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .solution-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-tabs {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .timeline-tab {
+                max-width: none;
+            }
+            
+            .chart-container {
+                padding: 1.5rem;
+            }
+            
+            .interactive-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Fade-in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Highlight animation */
+        .highlight-row {
+            animation: highlightFade 2s ease-in-out;
+        }
+
+        @keyframes highlightFade {
+            0% { background: rgba(231, 76, 60, 0.2); }
+            50% { background: rgba(231, 76, 60, 0.1); }
+            100% { background: transparent; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">The Unified Chronology</a>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>→</span>
+                <span>The Assyrian Correction</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="error-badge">🚨 System Error Detected</div>
+            <h1>The Assyrian Correction</h1>
+            <p class="subtitle">How a Single Error Cascaded Through History</p>
+            <span class="error-stat">44 Years</span>
+            <p style="font-size: 1.2rem; opacity: 0.9; margin-top: 1rem;">
+                The structural error that distorted our understanding of ancient civilization
+            </p>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="section-title">The Cascade Failure</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: var(--text-light); margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                For over a century, Ancient Near Eastern chronology has been built on what scholars believed was solid ground: the Assyrian King Lists. But what happens when the foundation itself is flawed?
+            </p>
+            
+            <div class="cascade-visual fade-in">
+                <h3 class="cascade-title">The Domino Effect</h3>
+                <p class="cascade-text">
+                    The 530 BC anchor reveals a fundamental truth: <strong>Any historical or scientific date derived from the conventional Assyrian timeline is not an independent witness—it's an echo of the original mistake.</strong> This cascade failure has propagated through archaeological dating, historical interpretations, and even influenced the calibration of scientific dating methods.
+                </p>
+            </div>
+
+            <div style="background: var(--light-bg); padding: 2.5rem; border-radius: 15px; margin-top: 3rem; border-left: 5px solid var(--warning-color);">
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem;">🎯 The Core Problem</h3>
+                <p style="color: var(--text-light); font-size: 1.1rem; line-height: 1.7;">
+                    Instead of adjusting the biblically-anchored framework to fit flawed external data, the proper approach is to identify and correct the systematic error in the Assyrian records. The 44-year discrepancy isn't random—it's structural and correctable.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Comparison -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2 class="section-title">Before & After: Timeline Comparison</h2>
+            
+            <div class="timeline-comparison fade-in">
+                <div class="timeline-tabs">
+                    <button class="timeline-tab conventional active" onclick="showTimeline('conventional')">
+                        ❌ Conventional Timeline
+                    </button>
+                    <button class="timeline-tab corrected" onclick="showTimeline('corrected')">
+                        ✅ Corrected Timeline
+                    </button>
+                </div>
+
+                <div id="conventional-timeline" class="timeline-content active">
+                    <h3 style="color: var(--error-color); text-align: center; margin-bottom: 2rem;">Conventional Chronology (Contains 44-Year Error)</h3>
+                    <div class="timeline-visual">
+                        <div class="timeline-ruler">
+                            <div class="timeline-markers">
+                                <div class="timeline-marker error">
+                                    <div class="marker-label">745 BC<br>Tiglath III</div>
+                                </div>
+                                <div class="timeline-marker error">
+                                    <div class="marker-label">722 BC<br>Samaria Falls</div>
+                                </div>
+                                <div class="timeline-marker error">
+                                    <div class="marker-label">586 BC<br>Temple</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; color: var(--error-color); font-weight: bold; margin-top: 1rem;">
+                            ⚠️ Conflicts with Biblical chronology, priestly courses, and prophetic timelines
+                        </div>
+                    </div>
+                </div>
+
+                <div id="corrected-timeline" class="timeline-content">
+                    <h3 style="color: var(--success-color); text-align: center; margin-bottom: 2rem;">Unified Chronology (44-Year Correction Applied)</h3>
+                    <div class="timeline-visual">
+                        <div class="timeline-ruler">
+                            <div class="timeline-markers">
+                                <div class="timeline-marker corrected">
+                                    <div class="marker-label">719 BC<br>Tiglath III</div>
+                                </div>
+                                <div class="timeline-marker corrected">
+                                    <div class="marker-label">677 BC<br>Samaria Falls</div>
+                                </div>
+                                <div class="timeline-marker corrected">
+                                    <div class="marker-label">530 BC<br>Temple</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; color: var(--success-color); font-weight: bold; margin-top: 1rem;">
+                            ✅ Perfect alignment with all biblical and archaeological evidence
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution-section">
+        <div class="container">
+            <h2 class="section-title">The Two-Part Solution</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: var(--text-light); margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Our "Maximal Tiglath / Single Gap" model applies two precise corrections that eliminate all chronological discrepancies and validate key archaeological discoveries.
+            </p>
+            
+            <div class="solution-grid">
+                <div class="solution-card fade-in">
+                    <div class="solution-header">
+                        <div class="solution-number">1</div>
+                        <h3>The 25-Year Gap</h3>
+                        <p>Unrecorded History Period</p>
+                    </div>
+                    <div class="solution-content">
+                        <p><strong>Discovery:</strong> A 25-year period of "Lost Reigns" immediately following Ashur-nirari V (conventionally 745 BC).</p>
+                        <br>
+                        <p><strong>Evidence:</strong> This gap is mathematically required to align the biblical timeline with Assyrian records. It represents either unrecorded rulers or a period of political instability.</p>
+                        <br>
+                        <p><strong>Impact:</strong> Resolves synchronization issues between Israelite and Assyrian king lists.</p>
+                    </div>
+                </div>
+
+                <div class="solution-card fade-in">
+                    <div class="solution-header">
+                        <div class="solution-number">2</div>
+                        <h3>Tiglath's True Reign</h3>
+                        <p>37 Years, Not 18</p>
+                    </div>
+                    <div class="solution-content">
+                        <p><strong>Discovery:</strong> Tiglath-Pileser III's official 18-year reign is a historical error. His true reign was 37 years (719-682 BC).</p>
+                        <br>
+                        <p><strong>Evidence:</strong> His own inscriptions reference events that require a longer timeframe. The extended reign resolves chronological paradoxes in his annals.</p>
+                        <br>
+                        <p><strong>Impact:</strong> Perfectly synchronizes with the entire biblical sequence of Israelite kings.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Synchronized Chart -->
+    <section class="chart-section">
+        <div class="container">
+            <h2 class="section-title">The Definitive Synchronized Chart</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: var(--text-light); margin-bottom: 2rem;">
+                With the 44-year correction applied, witness perfect harmony between biblical and Assyrian chronology
+            </p>
+            
+            <div class="interactive-controls">
+                <button class="control-button active" onclick="highlightPeriod('all')">Show All</button>
+                <button class="control-button" onclick="highlightPeriod('tiglath')">Tiglath Period</button>
+                <button class="control-button" onclick="highlightPeriod('gap')">The Gap</button>
+                <button class="control-button" onclick="highlightPeriod('anchors')">Key Anchors</button>
+            </div>
+
+            <div class="chart-container fade-in">
+                <table class="chart-table" id="sync-chart">
+                    <thead>
+                        <tr>
+                            <th>Corrected BC Date</th>
+                            <th>Kingdom of Israel (North)</th>
+                            <th>Kingdom of Judah (South)</th>
+                            <th>Assyrian Monarch & Events</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="period-early">
+                            <td><strong>857-824</strong></td>
+                            <td><strong>Ahab (857-835)</strong>, Jehoram</td>
+                            <td>Jehoshaphat to Joash</td>
+                            <td><strong>Shalmaneser III</strong><br><em>Kurkh Monolith & Black Obelisk validated</em></td>
+                        </tr>
+                        <tr class="period-early">
+                            <td><strong>824-782</strong></td>
+                            <td>Jehu (28 years)</td>
+                            <td>Joash, Amaziah</td>
+                            <td><strong>Shamshi-Adad V to Adad-nirari III</strong></td>
+                        </tr>
+                        <tr class="anchor-row period-anchors">
+                            <td><strong>772-754</strong></td>
+                            <td>Jeroboam II</td>
+                            <td>Uzziah</td>
+                            <td><strong>Assur-dan III</strong><br><em>10th year = 763 BC eclipse (immovable anchor)</em></td>
+                        </tr>
+                        <tr class="period-early">
+                            <td><strong>754-744</strong></td>
+                            <td>Jeroboam II</td>
+                            <td>Uzziah</td>
+                            <td><strong>Ashur-nirari V</strong></td>
+                        </tr>
+                        <tr class="gap-row period-gap">
+                            <td><strong>744-719</strong></td>
+                            <td>Zechariah, Shallum, Menahem begins</td>
+                            <td>Uzziah continues</td>
+                            <td><strong>THE 25-YEAR GAP</strong><br><em>Unrecorded History Period</em></td>
+                        </tr>
+                        <tr class="anchor-row period-tiglath period-anchors">
+                            <td><strong>719-682</strong></td>
+                            <td><strong>Menahem (719-709)</strong>, Pekah, <strong>Hoshea begins 687</strong></td>
+                            <td>Jotham, Ahaz begins</td>
+                            <td><strong>Tiglath-Pileser III (37-year corrected reign)</strong><br><em>Harmonizes all biblical sequences</em></td>
+                        </tr>
+                        <tr class="period-tiglath">
+                            <td><strong>682-677</strong></td>
+                            <td>Hoshea (ends 677)</td>
+                            <td>Ahaz, Hezekiah begins</td>
+                            <td><strong>Shalmaneser V</strong></td>
+                        </tr>
+                        <tr class="anchor-row period-anchors">
+                            <td><strong>677 BC</strong></td>
+                            <td><span style="color: var(--error-color); font-weight: bold;">FALL OF SAMARIA</span></td>
+                            <td>Hezekiah</td>
+                            <td><strong>Sargon II begins</strong></td>
+                        </tr>
+                        <tr class="period-late">
+                            <td><strong>677-582</strong></td>
+                            <td><em>No Kingdom</em></td>
+                            <td>Hezekiah through Zedekiah</td>
+                            <td>Sargon II, Sennacherib, Esarhaddon, Ashurbanipal</td>
+                        </tr>
+                        <tr class="final-anchor period-anchors">
+                            <td><strong>530 BC</strong></td>
+                            <td><em>No Kingdom</em></td>
+                            <td><span style="color: var(--gold-color); font-weight: bold;">FALL OF JUDAH</span></td>
+                            <td><strong>PRIMARY ANCHOR POINT</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div style="background: var(--success-gradient); color: var(--white); padding: 2.5rem; border-radius: 20px; margin: 3rem 0; text-align: center;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">🎯 Perfect Synchronization Achieved</h3>
+                <p style="font-size: 1.2rem; opacity: 0.95; line-height: 1.6;">
+                    This corrected timeline eliminates all conflicts between biblical, Assyrian, and archaeological records. Key artifacts like the Kurkh Monolith (Ahab) and Black Obelisk (Jehoram) now validate perfectly without forced interpretations.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Archaeological Validation -->
+    <section style="padding: 6rem 0; background: var(--white);">
+        <div class="container">
+            <h2 class="section-title">Archaeological Validation</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: var(--text-light); margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                The corrected timeline doesn't just resolve conflicts—it validates key archaeological discoveries by placing them in their proper historical context.
+            </p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div style="background: var(--light-bg); padding: 2rem; border-radius: 15px; border-left: 5px solid var(--success-color);">
+                    <h4 style="color: var(--primary-color); margin-bottom: 1rem;">📜 Kurkh Monolith</h4>
+                    <p style="color: var(--text-light); line-height: 1.6;">
+                        <strong>Mentions:</strong> Ahab of Israel<br>
+                        <strong>Corrected Date:</strong> 857-835 BC<br>
+                        <strong>Validation:</strong> Perfect match with corrected Ahab's reign
+                    </p>
+                </div>
+                
+                <div style="background: var(--light-bg); padding: 2rem; border-radius: 15px; border-left: 5px solid var(--success-color);">
+                    <h4 style="color: var(--primary-color); margin-bottom: 1rem;">🗿 Black Obelisk</h4>
+                    <p style="color: var(--text-light); line-height: 1.6;">
+                        <strong>Mentions:</strong> "Jehu" (re-identified as Jehoram)<br>
+                        <strong>Corrected Date:</strong> 833-821 BC<br>
+                        <strong>Validation:</strong> Aligns with Jehoram's tribute payment
+                    </p>
+                </div>
+                
+                <div style="background: var(--light-bg); padding: 2rem; border-radius: 15px; border-left: 5px solid var(--success-color);">
+                    <h4 style="color: var(--primary-color); margin-bottom: 1rem;">🌒 Bur-Sagale Eclipse</h4>
+                    <p style="color: var(--text-light); line-height: 1.6;">
+                        <strong>Date:</strong> 763 BC (Assur-dan III's 10th year)<br>
+                        <strong>Status:</strong> Immovable astronomical anchor<br>
+                        <strong>Validation:</strong> Confirms corrected timeline accuracy
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <section class="page-navigation">
+        <div class="container">
+            <h3 style="color: var(--primary-color); margin-bottom: 2rem;">Explore the Complete Framework</h3>
+            <div class="nav-buttons">
+                <a href="page-anchor.html" class="nav-button">← The 530 BC Anchor</a>
+                <a href="page-archaeological.html" class="nav-button primary">Next: Archaeological Evidence →</a>
+                <a href="page-statistics.html" class="nav-button">Statistical Analysis</a>
+                <a href="index.html" class="nav-button">Return Home</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Timeline comparison functionality
+        function showTimeline(timeline) {
+            // Remove active class from all tabs and content
+            document.querySelectorAll('.timeline-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.timeline-content').forEach(content => content.classList.remove('active'));
+            
+            // Add active class to selected tab and content
+            document.querySelector(`.timeline-tab.${timeline}`).classList.add('active');
+            document.getElementById(`${timeline}-timeline`).classList.add('active');
+        }
+
+        // Chart highlighting functionality
+        function highlightPeriod(period) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.control-button').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Remove all existing highlights
+            document.querySelectorAll('.chart-table tr').forEach(row => {
+                row.style.opacity = '1';
+                row.style.transform = 'scale(1)';
+                row.classList.remove('highlight-row');
+            });
+            
+            if (period !== 'all') {
+                // Fade non-matching rows
+                document.querySelectorAll('.chart-table tr').forEach(row => {
+                    if (!row.classList.contains(`period-${period}`) && !row.querySelector('th')) {
+                        row.style.opacity = '0.3';
+                        row.style.transform = 'scale(0.98)';
+                    } else if (row.classList.contains(`period-${period}`)) {
+                        row.classList.add('highlight-row');
+                    }
+                });
+            }
+        }
+
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Interactive table rows
+        document.querySelectorAll('.chart-table tr').forEach(row => {
+            row.addEventListener('click', function() {
+                if (!this.querySelector('th')) {
+                    this.style.transform = 'scale(1.02)';
+                    this.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
+                    
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                        this.style.boxShadow = 'none';
+                    }, 300);
+                }
+            });
+        });
+
+        // Timeline marker interactions
+        document.querySelectorAll('.timeline-marker').forEach(marker => {
+            marker.addEventListener('click', function() {
+                // Remove active class from all markers
+                document.querySelectorAll('.timeline-marker').forEach(m => m.classList.remove('active'));
+                
+                // Add active class to clicked marker
+                this.classList.add('active');
+                
+                // Add ripple effect
+                this.style.transform = 'scale(1.5)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1.2)';
+                }, 200);
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navigation bar scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav-bar');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.15)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Enhanced loading animation
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in-out';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+            
+            // Stagger the fade-in animations
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in').forEach((el, index) => {
+                    setTimeout(() => {
+                        if (el.getBoundingClientRect().top < window.innerHeight) {
+                            el.classList.add('visible');
+                        }
+                    }, index * 150);
+                });
+            }, 300);
+        });
+
+        // Auto-highlight key periods on scroll
+        window.addEventListener('scroll', function() {
+            const chartSection = document.querySelector('.chart-section');
+            const rect = chartSection.getBoundingClientRect();
+            
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                // Auto-cycle through highlights when chart is in view
+                const highlights = ['gap', 'tiglath', 'anchors', 'all'];
+                const currentTime = Math.floor(Date.now() / 3000) % highlights.length;
+                
+                // Only auto-highlight if no manual selection is active
+                const activeButton = document.querySelector('.control-button.active');
+                if (activeButton && activeButton.textContent.includes('Show All')) {
+                    setTimeout(() => {
+                        const buttons = document.querySelectorAll('.control-button');
+                        buttons.forEach(btn => btn.classList.remove('active'));
+                        buttons[currentTime].classList.add('active');
+                        highlightPeriod(highlights[currentTime]);
+                    }, 1000);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

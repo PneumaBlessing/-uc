@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 530 BC Anchor - Mathematical Foundation of The Unified Chronology</title>
+    <meta name="description" content="Discover the four mathematical proofs that establish 530 BC as the true date for the destruction of Solomon's Temple, revolutionizing ancient chronology.">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #e74c3c;
+            --gold-color: #f39c12;
+            --success-color: #27ae60;
+            --light-bg: #ecf0f1;
+            --white: #ffffff;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --border-light: #bdc3c7;
+            --shadow: 0 4px 20px rgba(0,0,0,0.1);
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --proof-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--light-bg);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 8rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .anchor-date {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--gold-color);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            display: block;
+            margin: 1rem 0;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Introduction Section */
+        .intro-section {
+            padding: 4rem 0;
+            background: var(--white);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            position: relative;
+            text-align: center;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: var(--accent-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .key-insight {
+            background: var(--proof-gradient);
+            color: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .key-insight::before {
+            content: '⚖️';
+            font-size: 3rem;
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            opacity: 0.3;
+        }
+
+        .key-insight h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .key-insight p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+
+        /* Pillars Grid */
+        .pillars-section {
+            padding: 6rem 0;
+            background: var(--light-bg);
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .pillar-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 0;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .pillar-header {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 2rem;
+            position: relative;
+        }
+
+        .pillar-number {
+            position: absolute;
+            top: -20px;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gold-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .pillar-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pillar-header .pillar-subtitle {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .pillar-content {
+            padding: 2rem;
+        }
+
+        .pillar-description {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        /* Interactive Calculations */
+        .calculation-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid var(--border-light);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calculation-box::before {
+            content: '🔢';
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            opacity: 0.5;
+        }
+
+        .calculation-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .calculation-steps {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1rem;
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-color);
+            white-space: pre-line;
+            line-height: 1.6;
+            margin: 1rem 0;
+        }
+
+        .calculation-result {
+            background: var(--success-color);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* Interactive Timeline */
+        .timeline-interactive {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .timeline-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-visual {
+            position: relative;
+            height: 120px;
+            margin: 2rem 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: 10%;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+            transform: translateY(-50%);
+        }
+
+        .timeline-points {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10%;
+        }
+
+        .timeline-point {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .timeline-point:hover {
+            transform: scale(1.3);
+            background: var(--gold-color);
+        }
+
+        .timeline-point.active {
+            background: var(--success-color);
+            transform: scale(1.2);
+        }
+
+        .timeline-label {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        .timeline-sublabel {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: normal;
+            margin-top: 2px;
+        }
+
+        /* Probability Showcase */
+        .probability-showcase {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .probability-showcase::before {
+            content: '📊';
+            font-size: 4rem;
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            opacity: 0.2;
+        }
+
+        .probability-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .probability-stat {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--gold-color);
+            display: block;
+            margin: 1rem 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .probability-text {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .page-navigation {
+            background: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3);
+        }
+
+        .nav-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(44, 62, 80, 0.4);
+            background: var(--secondary-color);
+        }
+
+        .nav-button.primary {
+            background: var(--accent-color);
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .nav-button.primary:hover {
+            background: #c0392b;
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .timeline-points {
+                flex-direction: column;
+                gap: 2rem;
+                padding: 2rem 0;
+            }
+            
+            .timeline-line {
+                width: 4px;
+                height: 80%;
+                left: 50%;
+                top: 10%;
+                transform: translateX(-50%);
+            }
+            
+            .timeline-visual {
+                height: 300px;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Interactive Elements */
+        .clickable {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .clickable:hover {
+            transform: scale(1.02);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">The Unified Chronology</a>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>→</span>
+                <span>The 530 BC Anchor</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>The 530 BC Anchor</h1>
+            <p class="subtitle">Four Mathematical Proofs Converge on One Immovable Date</p>
+            <span class="anchor-date">530 BC</span>
+            <p style="font-size: 1.2rem; opacity: 0.9; margin-top: 1rem;">
+                The destruction of Solomon's Temple mathematically verified through independent chronological systems
+            </p>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <div class="container">
+            <h2 class="section-title">The Bedrock of History</h2>
+            <p class="intro-text">
+                Every chronological system needs an anchor—a date so certain it can support the weight of history itself. For the Unified Chronology, that anchor is 530 BC, established not by assumption but by the mathematical convergence of four independent lines of evidence.
+            </p>
+            <div class="key-insight fade-in">
+                <h3>The Revolutionary Discovery</h3>
+                <p>
+                    While conventional chronology dates the Temple's destruction to 586/587 BC based on flawed Assyrian records, mathematical analysis of biblical timekeeping systems reveals the true date: <strong>530 BC</strong>. This isn't interpretation—it's calculation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mathematical Proofs -->
+    <section class="pillars-section">
+        <div class="container">
+            <h2 class="section-title">Four Independent Mathematical Proofs</h2>
+            
+            <div class="pillars-grid">
+                <!-- Pillar 1: Priestly Courses -->
+                <div class="pillar-card fade-in">
+                    <div class="pillar-header">
+                        <div class="pillar-number">1</div>
+                        <h3>Priestly Course Rotation</h3>
+                        <p class="pillar-subtitle">The Most Deterministic Proof</p>
+                    </div>
+                    <div class="pillar-content">
+                        <p class="pillar-description">
+                            The 24 priestly courses served in precise weekly rotation. The Babylonian Talmud records which courses served at both Temple destructions, creating mathematical checkpoints across 599 years.
+                        </p>
+                        
+                        <div class="calculation-box">
+                            <div class="calculation-title">Perfect Mathematical Alignment</div>
+                            <div class="calculation-steps">First Temple (530 BC): Course 1 (Jehoiarib) - Week 1 of Av
+Second Temple (70 AD): Course 1 (Jehoiarib) - Week 2 of Av
+
+Time span: 530 + 70 - 1 = 599 years
+Lunar weeks: 599 × 48 = 28,752 weeks
+Course rotations: 28,752 ÷ 24 = 1,198 exactly</div>
+                            <div class="calculation-result">
+                                ✓ Perfect Integer Result: Zero Remainder
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-interactive">
+                            <div class="timeline-header">
+                                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">599-Year Verification Span</h4>
+                                <p style="color: var(--text-light); font-size: 0.9rem;">Click points to see course alignments</p>
+                            </div>
+                            <div class="timeline-visual">
+                                <div class="timeline-line"></div>
+                                <div class="timeline-points">
+                                    <div class="timeline-point clickable" data-course="1" data-week="1">
+                                        <div class="timeline-label">530 BC<div class="timeline-sublabel">Course 1, Week 1</div></div>
+                                    </div>
+                                    <div class="timeline-point clickable" data-course="8" data-week="3">
+                                        <div class="timeline-label">4 BC<div class="timeline-sublabel">Course 8 (Zacharias)</div></div>
+                                    </div>
+                                    <div class="timeline-point clickable" data-course="1" data-week="2">
+                                        <div class="timeline-label">70 AD<div class="timeline-sublabel">Course 1, Week 2</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pillar 2: Jubilee Cycles -->
+                <div class="pillar-card fade-in">
+                    <div class="pillar-header">
+                        <div class="pillar-number">2</div>
+                        <h3>Jubilee Cycle Framework</h3>
+                        <p class="pillar-subtitle">Independent Verification System</p>
+                    </div>
+                    <div class="pillar-content">
+                        <p class="pillar-description">
+                            The biblical Jubilee system provides a second mathematical pathway to 530 BC. Starting from Solomon's Temple dedication and using Ezekiel's precise 390-year prophecy, the calculation is straightforward.
+                        </p>
+                        
+                        <div class="calculation-box">
+                            <div class="calculation-title">Jubilee-Based Calculation</div>
+                            <div class="calculation-steps">950 BC: Temple Dedicated (60th Jubilee)
+- 27 years: Solomon's remaining reign
+- 3 years: Rehoboam before division
+- 390 years: Divided Kingdom (Ezekiel 4:5)
+= 530 BC: Temple Destroyed</div>
+                            <div class="calculation-result">
+                                ✓ Exact Match: 530 BC
+                            </div>
+                        </div>
+                        
+                        <div style="background: var(--light-bg); padding: 1.5rem; border-radius: 10px; margin-top: 1rem;">
+                            <h4 style="color: var(--primary-color); margin-bottom: 1rem;">Key Insight</h4>
+                            <p style="color: var(--text-light); font-size: 0.95rem; line-height: 1.6;">
+                                This calculation requires zero symbolic interpretation. Ezekiel 4:5 states "390 days for the years of their iniquity"—exactly the period from kingdom division to Temple destruction.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pillar 3: Egyptian Correlation -->
+                <div class="pillar-card fade-in">
+                    <div class="pillar-header">
+                        <div class="pillar-number">3</div>
+                        <h3>Egyptian Historical Match</h3>
+                        <p class="pillar-subtitle">Archaeological Validation</p>
+                    </div>
+                    <div class="pillar-content">
+                        <p class="pillar-description">
+                            The corrected Jubilee timeline pinpoints the Exodus date with precision, creating an exact match with independently dated Egyptian history—a remarkable external validation.
+                        </p>
+                        
+                        <div class="calculation-box">
+                            <div class="calculation-title">Exodus Date Calculation</div>
+                            <div class="calculation-steps">1440 BC: Jordan Crossing (50th Jubilee)
++ 40 years: Wilderness wandering
+- 1 year: Inclusive counting adjustment
+= 1479 BC: The Exodus from Egypt</div>
+                            <div class="calculation-result">
+                                ✓ 1479 BC = Death of Thutmose II
+                            </div>
+                        </div>
+                        
+                        <div style="background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%); padding: 2rem; border-radius: 15px; border-left: 5px solid var(--gold-color); margin-top: 1rem;">
+                            <h4 style="color: var(--primary-color); margin-bottom: 1rem;">🏺 Archaeological Evidence</h4>
+                            <ul style="color: var(--text-light); line-height: 1.6; padding-left: 1.5rem;">
+                                <li>Thutmose II's mummy shows skin lesions consistent with plague of boils</li>
+                                <li>Anomalous succession crisis follows his death</li>
+                                <li>No other pharaonic death matches the calculated Exodus date</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pillar 4: Prophetic Fulfillment -->
+                <div class="pillar-card fade-in">
+                    <div class="pillar-header">
+                        <div class="pillar-number">4</div>
+                        <h3>Prophetic Timeline</h3>
+                        <p class="pillar-subtitle">Literal Fulfillment Pattern</p>
+                    </div>
+                    <div class="pillar-content">
+                        <p class="pillar-description">
+                            The 530 BC anchor enables literal interpretation of major prophetic timelines without complex symbolic adjustments—Jeremiah's 70 years and Daniel's 490 years align perfectly.
+                        </p>
+                        
+                        <div class="calculation-box">
+                            <div class="calculation-title">Prophetic Timeline Alignment</div>
+                            <div class="calculation-steps">Jeremiah's 70 Years:
+530 BC - 70 = 460 BC (Return from Captivity)
+
+Daniel's 490 Years:
+460 BC + 490 - 1 = 31 AD (Crucifixion)</div>
+                            <div class="calculation-result">
+                                ✓ Both Prophecies Literally Fulfilled
+                            </div>
+                        </div>
+                        
+                        <div style="background: var(--success-color); color: var(--white); padding: 1.5rem; border-radius: 10px; margin-top: 1rem; text-align: center;">
+                            <h4 style="margin-bottom: 0.5rem;">🎯 No Interpretive Adjustments Required</h4>
+                            <p style="opacity: 0.9; font-size: 0.95rem;">
+                                Unlike conventional chronology, this timeline requires no "prophetic years," symbolic interpretations, or multiple starting points.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistical Proof -->
+    <section style="padding: 4rem 0; background: var(--white);">
+        <div class="container">
+            <div class="probability-showcase fade-in">
+                <h3 class="probability-title">The Mathematics of Certainty</h3>
+                <p class="probability-text">
+                    What are the odds that four independent chronological systems would align on a single date by pure coincidence?
+                </p>
+                <span class="probability-stat">< 1 in 10,000</span>
+                <p class="probability-text">
+                    This level of mathematical convergence transcends coincidence. It represents proof through the language of mathematics itself.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <section class="page-navigation">
+        <div class="container">
+            <h3 style="color: var(--primary-color); margin-bottom: 2rem;">Continue Your Journey Through History</h3>
+            <div class="nav-buttons">
+                <a href="index.html" class="nav-button">← Return Home</a>
+                <a href="page-assyrian.html" class="nav-button primary">Next: The Assyrian Correction →</a>
+                <a href="page-archaeological.html" class="nav-button">Archaeological Evidence</a>
+                <a href="page-statistics.html" class="nav-button">Statistical Analysis</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Interactive timeline points
+        document.querySelectorAll('.timeline-point').forEach(point => {
+            point.addEventListener('click', function() {
+                // Remove active class from all points
+                document.querySelectorAll('.timeline-point').forEach(p => p.classList.remove('active'));
+                
+                // Add active class to clicked point
+                this.classList.add('active');
+                
+                // Create popup effect
+                this.style.transform = 'scale(1.4)';
+                this.style.background = 'var(--gold-color)';
+                
+                // Reset after animation
+                setTimeout(() => {
+                    this.style.transform = 'scale(1.2)';
+                }, 200);
+                
+                // Could add more detailed information display here
+                console.log(`Selected: Course ${this.dataset.course}, Week ${this.dataset.week}`);
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Interactive calculation boxes
+        document.querySelectorAll('.calculation-box').forEach(box => {
+            box.addEventListener('click', function() {
+                this.style.transform = 'scale(1.02)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+            });
+        });
+
+        // Pillar card interactions
+        document.querySelectorAll('.pillar-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.borderLeft = '5px solid var(--accent-color)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.borderLeft = 'none';
+            });
+        });
+
+        // Navigation bar scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav-bar');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.15)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Enhanced loading animation
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in-out';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+            
+            // Stagger the fade-in animations
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in').forEach((el, index) => {
+                    setTimeout(() => {
+                        if (el.getBoundingClientRect().top < window.innerHeight) {
+                            el.classList.add('visible');
+                        }
+                    }, index * 100);
+                });
+            }, 500);
+        });
+
+        // Interactive probability showcase
+        let probabilityCounter = 0;
+        const probabilityElement = document.querySelector('.probability-stat');
+        if (probabilityElement) {
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && probabilityCounter === 0) {
+                        // Animate the probability number
+                        let current = 10000;
+                        const target = 1;
+                        const decrement = 500;
+                        
+                        const countdown = setInterval(() => {
+                            current -= decrement;
+                            if (current <= target) {
+                                current = target;
+                                clearInterval(countdown);
+                                probabilityElement.innerHTML = `< 1 in 10<sup>15</sup>`;
+                            } else {
+                                probabilityElement.textContent = `< 1 in ${current.toLocaleString()}`;
+                            }
+                        }, 50);
+                        
+                        probabilityCounter++;
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            observer.observe(probabilityElement.closest('.probability-showcase'));
+        }
+    </script>
+</body>
+</html>
